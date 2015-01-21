@@ -28,26 +28,20 @@ P.S. The game ends when one of the players reaches 21 points with minimum 2-poin
 
 public class WhoseTurn {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		String whose = service("21:22");
-		System.out.println(whose);
-
-	}
-	
 	public static String service(String score)
 	{
+		// getting the scores and putting it in int variables
 		String[] scores = score.split(":");
 		int firstScore = Integer.parseInt(scores[0]);
 		int secondScore = Integer.parseInt(scores[1]);
 		
+
 		int sumOfScores = firstScore + secondScore;
-		
+		int turn;
 		
 		if (sumOfScores > 40)
 		{
-			int remainingServes = sumOfScores - 40;
-			int turn = remainingServes / 2;
+			turn = (sumOfScores - 40) / 2;
 			
 			if (even(turn))
 				return "first";
@@ -56,11 +50,12 @@ public class WhoseTurn {
 		}
 		else
 		{
-			int turn = sumOfScores / 5;
-		if (even(turn))
-			return "first";
-		else
-			return "second";
+			turn = sumOfScores / 5;
+			
+			if (even(turn))
+				return "first";
+			else
+				return "second";
 		}
 		
 		
