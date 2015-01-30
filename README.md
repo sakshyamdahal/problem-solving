@@ -1,2 +1,4 @@
 # problem-solving
-Practice makes one perfect. I will take a programming challenge everyday and solve it using language of my choice.
+I love solving problems. That's what I am doing here.
+
+If you find any bugs or better way to do something than I have done then please let me know. Knowledge like happiness also grows with sharing.
