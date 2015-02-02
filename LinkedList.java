@@ -10,6 +10,8 @@
 */
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 
 public class LinkedList {
 
@@ -24,9 +26,14 @@ public class LinkedList {
 		myList.addToEnd(800);
 		myList.addToEnd(8000);
 		myList.addToEnd(81);
-		myList.addToEnd(newNode);
+		myList.addToEnd(80);
 
-		System.out.println(LinkedList.hasLoop());
+		System.out.println(myList.hasLoop());
+        System.out.println(myList.asArrayList().toString());
+
+        myList.removeDuplicates();
+        System.out.println(myList.asArrayList());
+
 
 	}
 
@@ -64,7 +71,7 @@ public class LinkedList {
 	}
 
 	// check if linkedList has a loop
-	public static boolean hasLoop()
+	public boolean hasLoop()
 	{
 		// go through the linked list and store the pointer in an arrayList 
 		// check if the pointer gets repeated 
@@ -91,6 +98,47 @@ public class LinkedList {
 		}
 
 		return false;
+	}
+
+
+	// takes O(n) runtime
+	// O(n) memory
+	public void removeDuplicates()
+	{
+		HashSet<Integer> set = new HashSet<Integer>();
+		Node previous = null;
+		Node pointer = mHead;
+
+
+		while(pointer != null)
+		{
+			if (set.contains(pointer.getData()))
+			{
+				previous.setNext(pointer.getNext());
+			}
+			else
+			{
+				set.add(pointer.getData());
+				previous = pointer;
+			}
+
+			pointer = pointer.getNext();
+		}	
+	}
+
+	
+	public ArrayList<Integer> asArrayList()
+	{
+		Node pointer = mHead;
+		ArrayList<Integer> list = new ArrayList<Integer>();
+
+		while(pointer != null)
+		{
+			list.add(pointer.getData());
+			pointer = pointer.getNext();
+		}
+
+		return list;
 	}
 
 	
