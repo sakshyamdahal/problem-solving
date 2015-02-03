@@ -126,6 +126,36 @@ public class LinkedList {
 		}	
 	}
 
+    // removes duplicate without using extra buffer
+    // O(1) space but for saving space we pay our price
+    // in complexity. Running complexity for this 
+    // algorithm is O(n^2)
+    
+    public void removeDuplicates2()
+    {
+        Node present = mHead;
+
+        while(present != null)
+        {
+            Node runner = present;
+            while(runner.getNext() != null)
+            {
+                if (runner.getNext().getData() == present.getData())
+                {
+                    runner.setNext(runner.getNext().getNext());
+                    
+                }
+                else
+                {
+                    runner = runner.getNext();
+                }
+            }
+
+            present = present.getNext();
+        }
+
+    }
+
 	
 	public ArrayList<Integer> asArrayList()
 	{
