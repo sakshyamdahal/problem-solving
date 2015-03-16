@@ -13,7 +13,7 @@ public class CaesarCipher {
 		for (int i = 0; i < 26; i++)
 		{
 			encoder[i] = (char) ('A' + (i+rotation)%26);
-			decoder[i] = (char) ( 'A' + (i + 26 - (rotation)%26 %26);
+			decoder[i] = (char) ( 'A' + (i + 26 - (rotation)%26) %26);
 		}
 
 	}
